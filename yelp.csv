@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+    <!-- Note: It is strongly recommended that you do NOT make large changes to this file. Changing DOM structure or classes may prevent
+         the page from functioning correctly. Especially important pieces have been marked as such with comments
+         and should not be changed for any reason. -->
+	<!-- Version: 1.8   Created by: Andrew 2/15/2021 -->
+	<!-- 4/6/2022 - update logo from thehub to www  -->
+	<!--          - update Digital Com Policy from thehub to sphere -->
+	<!--          - update Learm more from thehub to sphere -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="referrer" content="never" />
+    <title>SPG Notification</title>
+
+   	<style type="text/css">
+		body {
+			font-family: "Akkurat-Regular", "Arial", "Lucida Grande", sans-serif !important;
+			background: white;
+			font-size: 13px;
+		}
+		.pull-right{
+			float:right;
+		}
+		.divMain{
+			//background-image: url(https://thehub.spglobal.com/resources/statics/321474/BgImage.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			background-position: 20% 0%;
+			margin-top: 10px;
+			width: 85%;
+			padding:25px;
+			margin-left:20px;
+		}
+		.heading{
+			font-size: 35px;
+			font-weight: bold;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		.subText{
+			font-size: 18px;
+			line-height: 26px;
+		}
+		.siteText{
+			border: 7px solid #D6002A;
+			padding: 10px;
+			padding-left: 20px;
+			width:80%;
+			margin-top:30px;
+		}
+		.font14{
+			font-size: 14px;
+		}
+		.font16{
+			font-size: 16px;
+		}
+		.font18{
+			font-size: 18px;
+		}
+		.fontRed{
+			color: #D6002A;
+		}
+		.button{
+			border-radius: 0px !important;
+			padding: 15px 40px !important;
+			background: #6F6C6C;
+			color: white;
+			font-weight:bold;
+			text-decoration: none;
+			font-size: 15px;
+		}
+		.marginTop30{
+			margin-top: 30px;
+		}
+		.lineHeight{
+			line-height:22px;
+		}
+		.footer{
+			color: #707070;
+			font-size: 15px;
+			padding: 25px;
+			margin-top: -70px;
+		}
+		.pad10{
+			padding:10px;
+		}
+		div.siteText p{
+			margin-top: 0.5rem;
+			margin-bottom: 0.5rem;
+		}
+		.hidden{
+			display: none;
+		}
+   </style>
+</head>
+
+<body class="bodydrop">
+
+<script>
+function getUrlVars(url) {
+    var hash;
+    var myJson = {};
+    var hashes = url.slice(url.indexOf('?') + 1).split('&');
+    for (var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        myJson[hash[0]] = hash[1];
+    }
+    return myJson;
+}
+
+var params = getUrlVars(decodeURIComponent(document.URL));
+
+if (Object.keys(params).length < 5) {
+	top.location.href="https://www.spglobal.com";
+}
+</script>
+
+<div id="outer">
+    <div id="container" class="int curved">
+        <div id="branding" class = "pull-right pad10">
+		<img src = "https://www.spglobal.com/_media/images/logo-spglobal.svg" height = "64" width = "160"/>
+		</div>
+        <div id="content">
+            <div id="bodyCopy">
+			<div class = "divMain">
+			<p class = "heading"><script>document.write(params.reasoncode);</script></p>
+			<div id="normal">
+			<p class = "subText">The website you tried to access has been blocked in accordance with our <strong>S&P Global Digital Communications Policy.</strong> <a href = "https://sphere.spglobal.com/documents/preview/165133/Digital-Communications-Policy-pdf" class = "fontRed font14"><strong>What’s this?</strong></a></p>
+			</div>
+			<div id="error">
+			<p class = "subText">The website you tried to access is unavailable or unresponsive.  Please try again later. <br class = "font14">Exception Code: <script>document.write(params.reasoncode);</script></br></p>
+			</div>
+			<div class = "siteText">
+			<p class = "font16"><strong>Site: </strong><font><script>document.write(params.url);</script></font></p>
+			<p class = "font18 fontRed"><strong>Restricted Category: </strong><font><script>document.write(params.cat);</script></font></p>
+			<p class = "font14">Proxy ID: <font>Zscaler <script>document.write(params.locid);</script></font></p>
+			<!--			<p class = "font14">IP Address: <font>$(client.address)</font></p> -->
+			</div>
+			<div id = "categorized">
+			<p class = "font18 marginTop30"><strong>How to request access to this site</strong></p>
+			<p class = "font16">If you have a genuine business need to access to the site, please submit a whitelist request form in the IT Service Portal.</p>
+			<div style = "margin-top:30px;"><script>document.write("<a title = \"Request Access\" class=\"button\" href = \"https://spglobal.service-now.com/spg?id=sc_cat_item&sys_id=85959a2d1b578910c81c77b51a4bcbbe&site="+params.url+"&category="+params.cat+"&proxy=zen_"+params.locid+"&ip="+params.rule+"\">Request Access</a>");</script></div>
+			<p class = "font14 marginTop30 lineHeight">The request form will automatically fill in all the required details except for the Business Justification, which you must provide. Whitelisting requests are normally processed within 48 hours except in instances where further security checks are required.</p>
+			</div>
+			<div id = "uncategorized">
+			<p class = "font18 marginTop30"><strong>Please help us to categorize this site!</strong></p>
+			<p class = "font16 lineHeight">To protect our data and privacy, we categorize websites and restrict access to sites assigned to harmful categories. <a href = "https://sphere.spglobal.com/sites/technology-toolbox/SitePageModern/247196/internet-proxy-hub" class = "fontRed"><strong>Learn more</strong></a> about how to review and categorize.</p>
+			<div style = "margin-top:30px;" id = "_categorize"></div>
+			<p class = "font14 marginTop30 lineHeight">Upon clicking the button, you will be directed to an external Zscaler Site Review Request form to get the site categorized. After submission for review, you will receive an email from Zscaler within 2-48 hours with the site categorization. If the site is categorized as Unrestricted, you will have immediate access to the site.</p>
+			</div>
+			<p class = "font18 marginTop30"><strong>Need IT Help?</strong></p>
+			<p class = "font16">For further help with access to a restricted site, please email <a href = "mailto:escalateITTicket@spglobal.com" class = "fontRed"><strong>IT Service Desk</strong></a>, or <a href = "https://teams.microsoft.com/l/chat/0/0?users=28:0eb7cfae-9e4b-40a7-8651-715c5323af43" class = "fontRed"><strong>Chat with a Live Agent</strong></a> via MS Teams</p>
+			</div>
+                <div id="exceptionDetails" class="int">
+                    <!-- <h1 id="doctitle" localize="[%reasoncode%]">%reason%</h1> -->
+
+                    <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                         WARNING: DO NOT REMOVE!
+                         THIS SECTION IS USED TO INJECT KEY PAGE FUNCTIONALITY INCLUDING:
+                           - EXCEPTION DETAILS (DESCRIPTION)
+                           - INPUT TEXT FIELD FOR PASSWORD OVERRIDE
+                           - MESSAGE AND PROCEED BUTTON FOR COACHING
+                         REMOVING THIS WILL PREVENT BLOCK PAGES FROM WORKING
+                         !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                    <!-- START --- DO NOT REMOVE --- START -->
+                    <!--    <div id="message">
+                            <div localize="[$(exception.id).message]">
+                                $(exception.details)<span class="displayNone">&#160;</span>
+                            </div>
+                        </div> -->
+                    <!-- END --- DO NOT REMOVE --- END -->                   
+                </div>
+                
+            </div>
+        </div>
+		<div id="" class = "pull-right footer">
+		<p>© 2022 S&P Global</p>
+		</div>
+    </div>
+</div>
+<script type="text/javascript">
+   var src = params.url;
+   var res = src.split("/");
+   if (res[2] === undefined) {
+		res = src.split("&#x2F;");
+	}
+   var mess = "<a class = 'button' href=\"https://sitereview.zscaler.com/#/lookup-result/"+res[2]+"\" title=\"Categorize\" target=\"_blank\" rel=\"noopener\">Categorize</a>";
+   document.getElementById("_categorize").innerHTML = mess;
+
+   var category = params.cat.toLowerCase();
+   var except = params.reasoncode;
+   var kind = params.kind;
+   if (except != "tcp_error") {
+		var e1 = document.getElementById("error");
+		e1.classList.add("hidden");
+		if ((category === "miscellaneous+or+unknown") ||
+		    (category === "newly+registered+domains") ||
+		    (category === "non+categorizable") ||
+		    (category === "other+miscellaneous"))
+		{
+			var e1 = document.getElementById("categorized");
+			e1.classList.add("hidden");
+		}
+		else
+		{
+			var e1 = document.getElementById("uncategorized");
+			e1.classList.add("hidden");
+		}
+   }
+   else
+   {
+		var e1 = document.getElementById("normal");
+		var e2 = document.getElementById("uncategorized");
+		var e3 = document.getElementById("categorized");
+		e1.classList.add("hidden");
+		e2.classList.add("hidden");
+		e3.classList.add("hidden");
+   }
+</script>
+</body>
+</html>
